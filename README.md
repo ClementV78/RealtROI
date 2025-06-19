@@ -33,23 +33,30 @@ Le projet utilise un système de configuration en couches pour une gestion sécu
 
 ```
 RealtROI/
-├── src/
-│   ├── main.py              # Point d'entrée de l'application
-│   ├── api_client.py        # Client API pour Gnosis
-│   ├── match_purchases.py   # Logique de réconciliation factures/transactions
-│   ├── match_sales.py       # Analyse des ventes de tokens
-│   ├── invoice_parser.py    # Parser pour les factures RealT
-│   ├── blockchain_parser.py # Parser pour les données blockchain
-│   ├── db.py               # Gestion de la base de données locale
-│   └── utils.py            # Fonctions utilitaires
-├── config/
-│   └── config.ini          # Configuration (adresses wallet, etc.)
-├── data/
-│   ├── invoices.json       # Cache des factures RealT
-│   ├── transactions.json   # Cache des transactions blockchain
-│   ├── purchases.json      # Base de données des achats
-│   └── sales.json         # Base de données des ventes
-└── invoices/              # Dossier contenant les factures PDF
+├── src/                     # Code source
+│   ├── main.py             # Point d'entrée de l'application
+│   ├── api_client.py       # Client API pour Gnosis
+│   ├── match_purchases.py  # Réconciliation factures/transactions
+│   ├── match_sales.py      # Analyse des ventes de tokens
+│   ├── invoice_parser.py   # Parser pour les factures RealT
+│   ├── blockchain_parser.py# Parser pour les données blockchain
+│   ├── db.py              # Gestion de la base de données locale
+│   ├── utils.py           # Fonctions utilitaires
+│   ├── realt_scraper.py   # Scraping des factures RealT
+│   └── viewer.py          # Interface de visualisation
+│
+├── config/                 # Configuration
+│   ├── config.ini         # Configuration principale
+│   ├── config.ini.local   # Configuration locale (secrets)
+│   └── config.ini.example # Template de configuration
+│
+├── data/                  # Données générées
+│   ├── invoices.json     # Cache des factures RealT
+│   ├── transactions.json # Cache des transactions blockchain
+│   ├── purchases.json    # Base de données des achats
+│   └── sales.json       # Base de données des ventes
+│
+└── invoices/             # Factures PDF RealT
 ```
 
 ## 🛠 Installation
