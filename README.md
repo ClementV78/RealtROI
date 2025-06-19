@@ -27,23 +27,6 @@ Le projet utilise un système de configuration en couches pour une gestion sécu
    - Toujours versionné
    - Sert de référence pour créer votre configuration
 
-Pour configurer le projet :
-1. Copiez `config.ini.example` vers `config.ini.local`
-2. Modifiez `config.ini.local` avec vos paramètres sensibles
-3. Les autres paramètres peuvent rester dans `config.ini`
-
-### Format de configuration
-```ini
-[DEFAULT]
-# Votre adresse de portefeuille Gnosis actuelle
-gnosis_address = 0x...
-
-# Optionnel : Votre ancienne adresse si vous avez migré
-old_gnosis_address = 0x...
-
-# Optionnel : Configuration personnalisée
-pdf_invoice_folder = invoices
-data_folder = data
 ```
 
 ## 📁 Structure du Projet

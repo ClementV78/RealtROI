@@ -1,0 +1,34 @@
+[DEFAULT]
+# Clé API Gnosisscan (obligatoire)
+# 1. Créez un compte sur https://gnosisscan.io/apis
+# 2. Allez dans la section "API-KEYs"
+# 3. Cliquez sur "Add" pour générer une nouvelle clé
+api_key = VOTRE_CLE_API_GNOSISSCAN
+
+# Portefeuille Gnosis actuel (obligatoire)
+# L'adresse de votre portefeuille Gnosis qui contient vos RealTokens
+# Format : 0x suivi de 40 caractères hexadécimaux
+gnosis_address = 0x1234567890123456789012345678901234567890
+
+# Ancien portefeuille (optionnel)
+# À remplir uniquement si vous avez migré depuis un autre wallet
+# pour retrouver vos anciennes transactions
+old_gnosis_address = 0x1234567890123456789012345678901234567890
+
+# Identifiants RealT (obligatoire pour le scraping des factures)
+# Vos identifiants de connexion sur https://realt.co
+username = votre_email@example.com
+password = votre_mot_de_passe
+
+# Dossiers de données (optionnel)
+# Chemins relatifs depuis la racine du projet
+# Si non spécifiés, ces valeurs par défaut seront utilisées
+pdf_invoice_folder = invoices  # Dossier pour stocker les factures PDF
+data_folder = data            # Dossier pour les données JSON
+
+# Paramètres de scraping (optionnel)
+# Ajustez ces valeurs si vous rencontrez des problèmes de scraping
+scraping_delay = 2  # Délai en secondes entre les requêtes
+
+# Autres paramètres optionnels
+# contract_address = 0x... # Pour filtrer un token spécifique
