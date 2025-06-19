@@ -72,7 +72,51 @@ RealtROI/
 
 ## 📋 Utilisation
 
-### Import des factures
+### Pipeline Complet avec `main.py`
+
+Le script `main.py` est le point d'entrée principal qui permet d'exécuter l'ensemble du pipeline d'analyse :
+
+```bash
+python src/main.py [options]
+```
+
+#### Étapes du Pipeline
+1. **invoices** : Téléchargement et analyse des factures RealT
+2. **blockchain** : Récupération des transactions depuis Gnosis
+3. **purchases** : Association des factures avec les transactions
+4. **sales** : Détection et analyse des ventes
+
+#### Options Disponibles
+
+| Option | Description |
+|--------|-------------|
+| `--start-step ÉTAPE` | Commence l'exécution à partir d'une étape spécifique |
+| `--only-step ÉTAPE` | Exécute uniquement l'étape spécifiée |
+| `--skip-invoices` | Ignore l'étape de téléchargement des factures |
+
+Les valeurs possibles pour ÉTAPE sont : `invoices`, `blockchain`, `purchases`, `sales`
+
+#### Exemples d'Utilisation
+
+```bash
+# Exécute le pipeline complet
+python src/main.py
+
+# Ignore le téléchargement des factures
+python src/main.py --skip-invoices
+
+# Commence à partir de l'analyse blockchain
+python src/main.py --start-step blockchain
+
+# Exécute uniquement l'association des achats
+python src/main.py --only-step purchases
+```
+
+### Utilisation Individuelle des Scripts
+
+Si vous préférez exécuter les scripts individuellement :
+
+#### Import des factures
 
 1. Placez vos factures RealT (format PDF) dans le dossier `invoices/`
 2. Exécutez l'analyseur de factures :
@@ -80,7 +124,7 @@ RealtROI/
    python src/invoice_parser.py
    ```
 
-### Réconciliation des transactions
+#### Réconciliation des transactions
 
 Pour associer les factures avec les transactions blockchain :
 ```bash
@@ -91,6 +135,38 @@ Pour analyser les ventes :
 ```bash
 python src/match_sales.py
 ```
+
+### Cas d'Utilisation Courants
+
+1. **Première utilisation**
+   ```bash
+   python src/main.py
+   ```
+   Exécute le pipeline complet pour initialiser votre base de données.
+
+2. **Mise à jour périodique**
+   ```bash
+   python src/main.py --skip-invoices
+   ```
+   Met à jour uniquement les transactions blockchain et les analyses, sans re-télécharger les factures.
+
+3. **Après ajout de nouvelles factures**
+   ```bash
+   python src/main.py --start-step invoices
+   ```
+   Analyse les nouvelles factures et met à jour les analyses.
+
+4. **Vérification des ventes**
+   ```bash
+   python src/main.py --only-step sales
+   ```
+   Analyse uniquement les transactions de vente.
+
+### Gestion des Erreurs
+
+- En cas d'interruption, vous pouvez reprendre le traitement à n'importe quelle étape avec `--start-step`
+- Si une étape échoue, corrigez l'erreur puis relancez avec `--start-step` à l'étape qui a échoué
+- Pour le débogage, utilisez `--only-step` pour isoler une étape spécifique
 
 ## 📊 Exemple de sortie
 
