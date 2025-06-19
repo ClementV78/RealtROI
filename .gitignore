@@ -1,0 +1,20 @@
+    # Données et factures (contiennent des informations sensibles)
+data/
+invoices/
+
+# Configuration
+config/config.ini.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels
+.env
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
